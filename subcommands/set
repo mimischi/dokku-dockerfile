@@ -14,12 +14,12 @@ dockerfile_path_set_cmd() {
   set -- $cmd $@
   ##
 
-  [[ -z $2 ]] && dokku_log_fail "Please specify an app to run the command on"
-  verify_app_name "$2"
-  APP="$2"
+  APP="$1"
+  [[ -z "$APP" ]] && dokku_log_fail "Please specify an app to run the command on"
+  verify_app_name "$APP"
 
-  [[ -z "$3" ]] && dokku_log_fail "Please specify the relative path to the Dockerfile used in the app $APP"
-  echo "$3" >> "$DOKKU_ROOT/$APP/DOCKERFILE_PATH"
+  [[ -z "$2" ]] && dokku_log_fail "Please specify the relative path to the Dockerfile used in the app $APP"
+  echo "$2" >> "$DOKKU_ROOT/$APP/DOCKERFILE_PATH"
   echo "Changed Dockerfile path"
 }
 
