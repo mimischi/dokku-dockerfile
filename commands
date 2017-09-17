@@ -22,12 +22,14 @@ help_content
       echo 'Additional commands:'
       help_content_func | sort | column -c2 -t -s,
     else
-      help_content_func
+      cat<<help_desc
+    dockerfile, Plugin to manage alternative Dockerfile paths
+help_desc
     fi
     ;;
 
   *)
-    exit $DOKKU_NOT_IMPLEMENTED_EXIT
+    exit "$DOKKU_NOT_IMPLEMENTED_EXIT"
     ;;
 
 esac
