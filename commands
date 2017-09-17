@@ -17,9 +17,14 @@ help_content
     if [[ $1 = "dockerfile:help" ]]; then
       echo -e 'Usage: dokku dockerfile[:COMMAND] [<app>] [<path>]'
       echo ''
-      echo 'Allows to deploy applications with Dockerfiles not residing in the root directory'
+      echo 'Deploy applications via a Dockerfile from a subdirectory.'
       echo ''
-      echo 'Additional commands:'
+      echo 'Example: '
+      echo '$ dokku dockerfile:set <app> docker/dokku/Dockerfile'
+      echo ''
+      echo 'Where "docker/dokku/Dockerfile" is the relative path to the Dockerfile inside the application directory.'
+      echo ''
+      echo -e 'Additional commands:'
       help_content_func | sort | column -c2 -t -s,
     else
       cat<<help_desc
