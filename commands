@@ -9,13 +9,13 @@ case "$1" in
       declare desc="return help_content string"
 
       cat<<help_content
-    dockerfile:set <path/to/Dockerfile>, Set custom path to Dockerfile
-    dockerfile:unset <path/to/Dockerfile>, Unset custom path to Dockerfile
+    dockerfile:set <app> <path/to/Dockerfile>, Set custom path to Dockerfile
+    dockerfile:unset <app> <path/to/Dockerfile>, Unset custom path to Dockerfile
 help_content
     }
 
     if [[ $1 = "dockerfile:help" ]]; then
-      echo -e 'Usage: dokku dockerfile[:COMMAND]'
+      echo -e 'Usage: dokku dockerfile[:COMMAND] [<app>] [<path>]'
       echo ''
       echo 'Allows to deploy applications with Dockerfiles not residing in the root directory'
       echo ''
