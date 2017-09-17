@@ -2,10 +2,9 @@
 
 Deploy your applications via `Dockerfile`, while keeping your project root clean of auxiliary files.
 
-
 ## Installation
 
-```shell
+```
 sudo dokku plugin:install https://github.com/mimischi/dokku-dockerfile.git
 ```
 
@@ -33,18 +32,15 @@ dokku dockerfile:set <app> docker/dokku/Dockerfile
 ### Example project structure
 ```
 .
+├── app
+│   ├── [...]
 ├── docker
 │   ├── dokku
-│   │   ├── app.json
-│   │   ├── CHECKS
 │   │   ├── Dockerfile
-│   │   ├── DOKKU_SCALE
-│   │   ├── Procfile
-│   │   └── uwsgi.ini
+│   │   ├── [...]
 │   └── local
 │       ├── Dockerfile-dev
 ├── docker-compose.yml
-├── manage.py
 └── README.md
 ```
 
