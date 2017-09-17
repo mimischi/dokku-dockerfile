@@ -5,7 +5,7 @@ source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
 dockerfile_path_unset_cmd() {
   #shellcheck disable=SC2034
   declare desc="Set relative path to Dockerfile"
-  local cmd="dockerfile"
+  local cmd="dockerfile:unset"
   # Support --app/$DOKKU_APP_NAME flag
   # Use the following lines to reorder args into "$cmd $DOKKU_APP_NAME $@""
   local argv=("$@")
