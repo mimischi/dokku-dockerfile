@@ -6,5 +6,9 @@ TMP_WORK_DIR="$2"
 
 if [[ -e "$DOKKU_ROOT/$APP/DOCKERFILE_PATH" ]]; then
   pushd "$TMP_WORK_DIR" > /dev/null
+
+  if [[ ! -e $(cat "$DOKKU_ROOT/$APP/DOCKERFILE_PATH") ]]; then
+    dokku_log_fail "Dockerfile was not found in specified relative path"
+  fi
   cp $(cat "$DOKKU_ROOT/$APP/DOCKERFILE_PATH") Dockerfile
 fi
