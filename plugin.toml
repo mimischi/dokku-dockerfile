@@ -1,4 +1,4 @@
 [plugin]
 description = "dokku plugin to change the path to the dockerfile"
-version = "0.1.0"
+version = "0.2.0"
 [plugin.config]
