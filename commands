@@ -10,7 +10,7 @@ case "$1" in
 
       cat<<help_content
     dockerfile:set <app> <path/to/Dockerfile>, Set custom path to Dockerfile
-    dockerfile:unset <app> <path/to/Dockerfile>, Unset custom path to Dockerfile
+    dockerfile:unset <app>, Unset custom path to Dockerfile
 help_content
     }
 
