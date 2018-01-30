@@ -20,7 +20,8 @@ dockerfile_path_set_cmd() {
 
   [[ -z "$3" ]] && dokku_log_fail "Please specify the relative path to the Dockerfile used in the app $APP"
   echo "$3" > "$DOKKU_ROOT/$APP/DOCKERFILE_PATH"
-  echo "Changed Dockerfile path"
+  dokku_log_info1 "Changed Dockerfile path for $APP to:"
+  dokku_log_info1 "$3"
 }
 
 dockerfile_path_set_cmd "$@"
