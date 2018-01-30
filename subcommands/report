@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
+
+dockerfile_path_unset_cmd() {
+  #shellcheck disable=SC2034
+  declare desc="Report relative path to Dockerfile (if set)"
+  local cmd="dockerfile:report"
+  # Support --app/$DOKKU_APP_NAME flag
+  # Use the following lines to reorder args into "$cmd $DOKKU_APP_NAME $@""
+  local argv=("$@")
+  [[ ${argv[0]} == "$cmd" ]] && shift 1
+  [[ ! -z $DOKKU_APP_NAME ]] && set -- $DOKKU_APP_NAME $@
+  set -- $cmd $@
+  ##
+
+  APP="$2"
+  [[ -z "$APP" ]] && dokku_log_fail "Please specify an app to run the command on"
+  verify_app_name "$APP"
+
+  if [[ ! -e "$DOKKU_ROOT/$APP/DOCKERFILE_PATH" ]]; then
+          dokku_log_warn "No custom Dockerfile path was set for app $APP"
+  else
+      dokku_log_info1 "Dockerfile relative path for $APP is set to:"
+      dokku_log_info1 "$(cat $DOKKU_ROOT/$APP/DOCKERFILE_PATH)"
+  fi
+}
+
+dockerfile_path_unset_cmd "$@"
