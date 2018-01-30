@@ -29,7 +29,7 @@ help_content
       help_content_func | sort | column -c2 -t -s,
     else
       cat<<help_desc
-    dockerfile, Plugin to manage alternative Dockerfile paths
+    dockerfile, Plugin for managing alternative Dockerfile paths
 help_desc
     fi
     ;;
