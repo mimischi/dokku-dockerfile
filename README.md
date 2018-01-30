@@ -11,8 +11,9 @@ sudo dokku plugin:install https://github.com/mimischi/dokku-dockerfile.git
 ## Commands
 
 ```
-dockerfile:set <app> <path/to/Dockerfile> Set custom path to Dockerfile
-dockerfile:unset <app>                    Unset custom path to Dockerfile
+dockerfile:set    <app> <path/to/Dockerfile> Set custom path to Dockerfile
+dockerfile:unset  <app>                      Unset custom path to Dockerfile
+dockerfile:report <app>                      Report custom path to Dockerfile
 ```
 
 ## Usage
