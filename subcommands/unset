@@ -18,8 +18,6 @@ dockerfile_path_unset_cmd() {
   [[ -z "$APP" ]] && dokku_log_fail "Please specify an app to run the command on"
   verify_app_name "$APP"
 
-  [[ -z "$3" ]] && dokku_log_fail "Please specify the relative path to the Dockerfile used in the app $APP"
-
   if [[ ! -e "$DOKKU_ROOT/$APP/DOCKERFILE_PATH" ]]; then
           dokku_log_warn "No custom Dockerfile path was set for app $APP"
   else
