@@ -1,3 +1,7 @@
+# Deprecated
+
+This functionality is now [built into Dokku](https://dokku.com/docs/deployment/builders/dockerfiles/?h=monorepo#changing-the-dockerfile-location).
+
 # dokku-dockerfile
 
 Deploy your applications via `Dockerfile`, while keeping your project root clean of auxiliary files.
